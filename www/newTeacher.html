@@ -1,0 +1,31 @@
+<div class="container">
+<form id="teacherForm">
+  <div class="form-group">
+    <label>Имя</label>
+    <input class="form-control" placeholder="Имя" name="tecName">
+  </div>
+  <div class="form-group">
+    <label>Фамилия</label>
+    <input class="form-control" placeholder="Фамилия" name="tecSurname">
+  </div>
+  <div class="form-group">
+    <label>Отчество</label>
+    <input class="form-control" placeholder="Отчество" name="tecOtchestvo">
+  </div>
+  <div class="form-group">
+    <label>Предмет</label>
+    <select name="tecLesson" class="form-control">
+      <option ng-repeat="lesson in teacher.allLessons" value="{{lesson.id}}">{{lesson.title}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>E-mail</label>
+    <input type="email" class="form-control" placeholder="E-mail" name="tecEmail">
+  </div>
+  <div class="form-group">
+    <label>Пароль</label>
+    <input type="password" class="form-control" placeholder="Пароль" name="tecPassword">
+  </div>
+  <button class="btn btn-lg btn-primary" ng-click="addTeacher()">Добавить учителя</button>
+</form>
+</div>

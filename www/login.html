@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Онлайн-дневник</h1>
+    <p>Проект ученика 11"А" класса<br>
+      Средней школы №5 г.Рогачева<br>
+      <b>Пашкевича Александра</b></p>
+    <p><a class="btn btn-primary btn-lg" href="#" data-toggle="modal" data-target="#reg">Регистрация</a></p>
+    <p><a class="btn btn-success btn-lg" href="#" data-toggle="modal" data-target="#log">Вход</a></p>
+  </div>
+</div>
+
+
+<!-- Modal REGISTRATION -->
+<div class="modal fade" id="reg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Регистрация</h4>
+      </div>
+      <div class="modal-body">
+        <form id="registrationForm" name="registrationForm">
+          <div class="form-group">
+            <label>Имя</label>
+            <input class="form-control" placeholder="Имя" name="regName" ng-required="true">
+          </div>
+          <div class="form-group">
+            <label>Фамилия</label>
+            <input class="form-control" placeholder="Фамилия" name="regSurname" ng-required="true">
+          </div>
+          <div class="form-group">
+            <label>Отчество</label>
+            <input class="form-control" placeholder="Отчество" name="regOtchestvo" ng-required="true">
+          </div>
+          <div class="form-group">
+            <label>Класс</label>
+            <select  name="regForm">
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" class="form-control" placeholder="E-mail" name="regEmail" ng-required="true" ng-change="testEmail(regEmailValidation)" ng-model="regEmailValidation">
+          </div>
+          <div class="form-group">
+            <label>Пароль</label>
+            <input type="password" class="form-control" placeholder="Пароль" name="regPassword" ng-required="true">
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-primary" ng-click="registration()" ng-disabled="!isValidRegEmail">Зарегистрироваться</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal LOGIN -->
+<div class="modal fade" id="log" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Войти</h4>
+      </div>
+      <div class="modal-body">
+
+        <form id="logForm">
+          <div class="form-group">
+            <label for="exampleInputEmail1">E-mail</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="E-mail" name="logEmail">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Пароль</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Пароль" name="logPass">
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+        <button type="button" class="btn btn-primary" ng-click="login()">Войти</button>
+      </div>
+    </div>
+  </div>
+</div>

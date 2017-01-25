@@ -1,0 +1,33 @@
+<script>
+  $('#dataPicker').datepicker({
+  format: "dd.mm.yyyy",
+  language: "ru",
+  autoclose:true,
+  todayHighlight:true,
+  endDate:'0d'
+  });
+</script>
+
+<div class="container">
+  <div class="form-group">
+    <label><h3>Дата:</h3></label><br>
+    <input type="text" class="form-control" id="dataPicker" ng-change="findMarksFromDate(findMarksDate)" ng-model="findMarksDate">
+  </div>
+
+  <table class="table table-hover" ng-show="findMarksDate">
+    <thead>
+      <tr>
+        <th>Предмет</th>
+        <th>Оценка</th>
+        <th>Учитель</th>
+      <tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in findedMarks">
+        <td>{{item.lesson}}</td>
+        <td>{{item.mark}}</td>
+        <td>{{item.teacher}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

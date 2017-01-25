@@ -1,0 +1,63 @@
+<script>
+  $('#dataPicker').datepicker({
+  format: "dd.mm.yyyy",
+  language: "ru",
+  autoclose:true,
+  todayHighlight:true,
+  endDate:'0d'
+  });
+</script>
+
+
+<div class="container">
+  <div ng-show="isTeacher">
+    <div class="page-header">
+      <h1><small><u>{{teacher.surname}} {{teacher.name}} {{teacher.otchestvo}}</u>, ваш предмет </small>{{teacher.lesson}}</h1>
+    </div>
+
+    <form id="addMark">
+      <div class="form-group">
+        <label><h3>Ученик</h3></label><br>
+        <select  name="markPupil" multiple class="form-control">
+          <option ng-repeat="item in teacher.pupils" value="{{item.id}}">{{item.surname}} {{item.name}} {{item.otchestvo}}({{item.form}} класс)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label><h3>Дата</h3></label><br>
+        <input type="text" class="form-control" id="dataPicker" name="markDate">
+      </div>
+      <div class="form-group">
+        <label><h3>Оценка</h3></label><br>
+        <select  name="markMark" class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+        </select>
+      </div>
+      <input type="hidden" value="{{teacher.id}}" name="markTeacher">
+      <button class="btn btn-lg btn-success" ng-click="setMark()">Выставить</button>
+    </form>
+
+  </div>
+
+  <div ng-show="isPupil">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Предмет</th>
+          <th>Оценки</th>
+        <tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in pupil.allLessons" ng-click="showLessonMarks($index)"><td>{{item.title}}</td><td><b>{{item.marks.join(',')}} <u>{{average(item.marks)}}</u></b></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
