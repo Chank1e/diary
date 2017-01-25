@@ -11,3 +11,5 @@ PHP
 +
 AJAX
 PROJECT
+
+Require Apache+Mysql+Php Server)
